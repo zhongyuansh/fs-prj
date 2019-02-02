@@ -1,0 +1,9 @@
+OUTPUT_FILE=$1
+CMD=$2
+TEST_FILE=$3
+MYPATH="/home/mark/work/fs/working/f2fs/f2fs-mount/"
+LOGPATH="/home/mark/work/fs/working/f2fs/f2fs-log/"
+COMCMD="${CMD} ${MYPATH}${TEST_FILE}"
+
+eval trace-cmd record -p function -F ${COMCMD}
+eval trace-cmd report > ${LOGPATH}${OUTPUT_FILE}_t.txt

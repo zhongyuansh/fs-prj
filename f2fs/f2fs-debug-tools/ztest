@@ -1,0 +1,7 @@
+OUTPUT_FILE=$1
+CMD=$2
+TEST_FILE=$3
+PATH=/home/mark/work/fs/f2fs-mount/
+
+eval ${CMD} ${PATH}${TEST_FILE} 
+#strace -f -o /home/mark/work/fs/f2fs-debug/log/${OUTPUT_FILE}.txt ${CMD} ${PATH}${TEST_FILE}
