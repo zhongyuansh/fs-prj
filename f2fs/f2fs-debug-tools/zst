@@ -1,8 +1,14 @@
 OUTPUT_FILE=$1
 CMD=$2
 TEST_FILE=$3
+DEST_FILE=$4
 MYPATH="/home/mark/work/fs/working/f2fs/f2fs-mount/"
 LOGPATH="/home/mark/work/fs/working/f2fs/f2fs-log/"
+
+if [ ! -n "$4"  ] ;then
 COMCMD="${CMD} ${MYPATH}${TEST_FILE}"
+else
+COMCMD="${CMD} ${TEST_FILE} ${MYPATH}${DEST_FILE}"
+fi
 
 eval strace -f -o ${LOGPATH}${OUTPUT_FILE}.txt ${COMCMD}
